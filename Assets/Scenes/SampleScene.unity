@@ -244,7 +244,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -590,10 +590,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45006eef159d0d246b82fe29d1fc6dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 5
+  movingSpeed: 2
   rotationPercent: 0.2
-  rotationScreenPercent: 0.44
-  offsetScreenPercent: 0.37
+  rotationScreenPercent: 0.5
+  offsetScreenPercent: 0.4
   target: {fileID: 1937783780}
 --- !u!114 &628148662
 MonoBehaviour:
@@ -932,9 +932,9 @@ Canvas:
   m_GameObject: {fileID: 1246711979}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 330585545}
+  m_PlaneDistance: 0.3
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -942,7 +942,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &1246711983
 RectTransform:
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: fccd8f836dfe779489f17d1e3db02c86, type: 2}
   m_Color: {r: 0, g: 0, b: 0, a: 0.7490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1288,7 +1288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ad1c6e3f5437a42a62c593f056df17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scalePercent: {x: 1, y: 0.3}
+  scalePercent: {x: 0.3, y: 0.3}
   ratio: {x: 1, y: 1}
   scaleOnX: 0
   scaleOnY: 1
