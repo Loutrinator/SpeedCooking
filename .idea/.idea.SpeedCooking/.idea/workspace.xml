@@ -9,6 +9,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/RecipeMaker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIConstraint.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -67,6 +68,7 @@
       <updated>1664789314849</updated>
       <workItem from="1664791631750" duration="2130000" />
       <workItem from="1664803005259" duration="5104000" />
+      <workItem from="1664893656907" duration="4553000" />
     </task>
     <servers />
   </component>
