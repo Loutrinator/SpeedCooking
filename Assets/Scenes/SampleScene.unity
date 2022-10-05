@@ -595,7 +595,8 @@ MonoBehaviour:
   rotationPercent: 0.14
   rotationScreenPercent: 0.7
   offsetScreenPercent: 0.64
-  positionOffset: 0.05
+  respawnThreshold: 0.125
+  itemSlotAmount: 11
 --- !u!114 &628148662
 MonoBehaviour:
   m_ObjectHideFlags: 0

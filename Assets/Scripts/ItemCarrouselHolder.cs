@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(RectTransform))]
 public class ItemCarrouselHolder : MonoBehaviour
 {
-    [SerializeField] private float respawnthreshold = 0.125f;
+    
     public RectTransform rectTransform { get; private set; }
     public float currentRadialPosition;
     public void Set(float pos)
@@ -17,14 +17,20 @@ public class ItemCarrouselHolder : MonoBehaviour
         rectTransform = gameObject.GetComponent<RectTransform>();
     }
 
-    public void UpdatePosition(float offset, float circleDiameter, float circleOffset, float spacing)
+    public void UpdatePosition(float offset, float circleDiameter, float circleOffset, float respawnThreshold)
     {
         currentRadialPosition += offset;
-        if (currentRadialPosition > respawnthreshold)// && currentRadialPosition < 1f - respawnthreshold)
+        if (currentRadialPosition > respawnThreshold)// && currentRadialPosition < 1f - respawnthreshold)
         {
-            Debug.Log("LA COUY");
-            currentRadialPosition = -respawnthreshold;
+            currentRadialPosition -= respawnThreshold*2;
         }
+        if (currentRadialPosition < -respawnThreshold)// && currentRadialPosition < 1f - respawnthreshold)
+        {
+            currentRadialPosition += respawnThreshold*2;
+        }
+
+        currentRadialPosition = (currentRadialPosition + 0.5f) % 1 - 0.5f;
+        
         float elapsed = 0f;//Time.time - startTime;
         float animation = currentRadialPosition*2f*Mathf.PI + Mathf.PI / 2f;
         Vector3 previousPos = rectTransform.anchoredPosition;

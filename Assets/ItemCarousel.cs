@@ -10,8 +10,10 @@ public class ItemCarousel : MonoBehaviour
     public float rotationPercent = 1f;
     public float rotationScreenPercent = 1f;
     public float offsetScreenPercent = 1f;
-    public float positionOffset = 1f;
+    public float respawnThreshold = 0.125f;
+    public float itemSlotAmount = 7;
     private float startTime;
+    private float direction = 1;
     private LinkedList<ItemCarrouselHolder> uiItemHolders;
 
     void Start()
@@ -20,12 +22,11 @@ public class ItemCarousel : MonoBehaviour
         RectTransform rectT = gameObject.GetComponent<RectTransform>();
         uiItemHolders = new LinkedList<ItemCarrouselHolder>();
         
-        
-        
-        for(int i = 0; i < 10; i++)
+        for(int i = 0; i < itemSlotAmount; i++)
         {
             ItemCarrouselHolder uiItem = Instantiate(uiItemPrefab, transform);
-            uiItem.Set(uiItemHolders.Count*positionOffset);
+            float position = (i / (itemSlotAmount-1) * 2 - 1)*respawnThreshold;
+            uiItem.Set(position);
             UIConstraint constraint = uiItem.GetComponent<UIConstraint>();
             constraint.target = rectT;
             RectTransform rectTransform = uiItem.GetComponent<RectTransform>();
@@ -35,12 +36,13 @@ public class ItemCarousel : MonoBehaviour
     
     void Update()
     {
-        
         float size = rotationScreenPercent * Screen.height;
         float yOffset = offsetScreenPercent * Screen.height;
+        direction = (int)((startTime - Time.time) / 2f)%2*2+1;
+        Debug.Log(direction);
         foreach(var uiItemHolder in uiItemHolders)
         {
-            uiItemHolder.UpdatePosition(movingSpeed*Time.deltaTime,size,yOffset,positionOffset);
+            uiItemHolder.UpdatePosition(direction*movingSpeed*Time.deltaTime,size,yOffset, respawnThreshold);
         }
     }
 }
