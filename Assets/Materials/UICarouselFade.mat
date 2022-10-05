@@ -43,8 +43,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CircleSharpness: 0.341
-    - _CircleSize: 1.08
+    - _CircleSharpness: 0
+    - _CircleSize: 2.36
     - _EllipseSize: 0.4
     - _FadeDistance: 0.3
     - _FadeEnd: 1
@@ -53,7 +53,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _EllipseColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 0.8784314}
+    - _EllipseColor: {r: 0, g: 0, b: 0, a: 0.75686276}
   m_BuildTextureStacks: []
 --- !u!114 &8609087217531594484
 MonoBehaviour:

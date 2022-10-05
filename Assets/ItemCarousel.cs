@@ -4,31 +4,43 @@ using UnityEngine;
 
 public class ItemCarousel : MonoBehaviour
 {
+    
+    public ItemCarrouselHolder uiItemPrefab;
     public float movingSpeed = 5f;
     public float rotationPercent = 1f;
     public float rotationScreenPercent = 1f;
     public float offsetScreenPercent = 1f;
-    public RectTransform target;
+    public float positionOffset = 1f;
     private float startTime;
+    private LinkedList<ItemCarrouselHolder> uiItemHolders;
 
     void Start()
     {
         startTime = Time.time;
+        RectTransform rectT = gameObject.GetComponent<RectTransform>();
+        uiItemHolders = new LinkedList<ItemCarrouselHolder>();
+        
+        
+        
+        for(int i = 0; i < 10; i++)
+        {
+            ItemCarrouselHolder uiItem = Instantiate(uiItemPrefab, transform);
+            uiItem.Set(uiItemHolders.Count*positionOffset);
+            UIConstraint constraint = uiItem.GetComponent<UIConstraint>();
+            constraint.target = rectT;
+            RectTransform rectTransform = uiItem.GetComponent<RectTransform>();
+            uiItemHolders.AddLast(uiItem);
+        }
     }
     
     void Update()
     {
-        float elapsed = Time.time - startTime;
-        float animation = Mathf.Sin(elapsed * movingSpeed)*Mathf.PI*rotationPercent + Mathf.PI/2f;
-        Vector3 previousPos = target.anchoredPosition;
+        
         float size = rotationScreenPercent * Screen.height;
-        float offset = offsetScreenPercent * Screen.height;
-        previousPos.x = Mathf.Cos(animation)*size;
-        previousPos.y = Mathf.Sin(animation)*size - offset;
-        target.anchoredPosition = previousPos;
-        //225,96,40
-        //ScreenPointToWorldPointInRectangle(rect: RectTransform, screenPoint: Vector2, cam: Camera, worldPoint: Vector3): bool;
-        //Vector2 myV2 = new Vector2(0,24);
-        //Debug.Log (RectTransformUtility.ScreenPointToWorldPointInRectangle(myRectT, myV2, MainCam, out result));
+        float yOffset = offsetScreenPercent * Screen.height;
+        foreach(var uiItemHolder in uiItemHolders)
+        {
+            uiItemHolder.UpdatePosition(movingSpeed*Time.deltaTime,size,yOffset,positionOffset);
+        }
     }
 }

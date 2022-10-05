@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Ingredient : MonoBehaviour
 {
-    [SerializeField] private string name;
+    [SerializeField] private string description;
 
     public string GetHashName()
     {
-        return name;
+        return description;
     }
 
 }
