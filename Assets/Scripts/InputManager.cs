@@ -43,6 +43,7 @@ public class InputManager : Singleton<InputManager>
     {
         if (OnStartTouch != null)
         {
+            Debug.Log(playerControls.Touch.PrimaryPosition.ReadValue<Vector2>());
             OnStartTouch(Utils.ScreenToWorld(mainCamera, playerControls.Touch.PrimaryPosition.ReadValue<Vector2>()),
                 (float)context.startTime);
         }
@@ -59,5 +60,9 @@ public class InputManager : Singleton<InputManager>
     public Vector2 PrimaryPosition()
     {
         return  Utils.ScreenToWorld(mainCamera, playerControls.Touch.PrimaryPosition.ReadValue<Vector2>());
+    }
+    public Vector2 PrimaryScreenPosition()
+    {
+        return  playerControls.Touch.PrimaryPosition.ReadValue<Vector2>();
     }
 }
