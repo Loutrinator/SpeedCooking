@@ -39,7 +39,6 @@ public class ItemCarousel : MonoBehaviour
         float size = rotationScreenPercent * Screen.height;
         float yOffset = offsetScreenPercent * Screen.height;
         direction = (int)((startTime - Time.time) / 2f)%2*2+1;
-        Debug.Log(direction);
         foreach(var uiItemHolder in uiItemHolders)
         {
             uiItemHolder.UpdatePosition(direction*movingSpeed*Time.deltaTime,size,yOffset, respawnThreshold);
