@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 415800373913757923}
   - component: {fileID: 415800373913757922}
   - component: {fileID: 415800373913757921}
-  - component: {fileID: 415800373913757934}
+  - component: {fileID: 2526863601701693621}
   m_Layer: 0
   m_Name: cuttingboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 0
 --- !u!4 &415800373913757920
 Transform:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &415800373913757934
+--- !u!65 &2526863601701693621
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,5 +112,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.4081132, y: 0.28335807, z: 0.019999987}
+  m_Size: {x: 0.4081132, y: 0.01999998, z: 0.283358}
   m_Center: {x: 0, y: 0, z: 0}

@@ -7,6 +7,7 @@ public class TestMouse : MonoBehaviour
 {
     [SerializeField] private float distance = 0.3f;
     [SerializeField] private Vector3 planePos;
+    [SerializeField] private Vector3 planeNormal;
     [SerializeField] private Transform target;
     [SerializeField] private bool doLerpPosition;
     [SerializeField] private float lerpPositionSpeed = 5f;
@@ -22,7 +23,11 @@ public class TestMouse : MonoBehaviour
     {
         inputManager = InputManager.instance;
         camera = Camera.main;
-        plane = new Plane(-Vector3.forward, planePos);
+    }
+
+    private void FixedUpdate()
+    {
+        plane = new Plane(planeNormal, planePos);
     }
 
     private void Update()
