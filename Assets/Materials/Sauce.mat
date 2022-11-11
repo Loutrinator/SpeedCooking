@@ -36,18 +36,18 @@ Material:
     m_Ints: []
     m_Floats:
     - _AngularNoiseScale: 1.44
-    - _Height: 0.566
+    - _Height: 0.754
     - _HeightColorCoeff: 0.623
     - _Max_Height: 0.03
-    - _NoiseScale: 1.11
+    - _NoiseScale: 0.79
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RadialNoiseScale: 16.38
     - _RotateSpeed: 5
     - _SideColorIntensity: 0.773
     - _SideColorPower: 2.45
-    - _SideWavesPower: 0.9
-    - _TwirlNoiseSpeed: 0.62
+    - _SideWavesPower: 0.5
+    - _TwirlNoiseSpeed: 0.05
     - _TwirlScale: 6.68
     - _WaveTimeSpeed: 25
     m_Colors:

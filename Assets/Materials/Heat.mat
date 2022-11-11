@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1015567744636717197
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -7,12 +20,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bubble
-  m_Shader: {fileID: -6465566751694194690, guid: 5d0f327a5c7d9e04baf565fdce0363de,
+  m_Name: Heat
+  m_Shader: {fileID: -6465566751694194690, guid: 83a3ac4ff172e5e4fbca5ce34c9a43ad,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -35,26 +48,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 0.92
-    - _NoisePower: 0.725
-    - _NoiseSize: 10
+    - _FadePower: 0.47
+    - _HeatDistortion: 0.01
+    - _NoiseSize: 7.01
+    - _NoiseSpeed: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SideColorIntensity: 1
-    m_Colors:
-    - _MainColor: {r: 0.94509804, g: 0.7294118, b: 0.3764706, a: 0}
-    - _SideColor: {r: 0.67058825, g: 0.41960785, b: 0.16862746, a: 0}
+    m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &180168016425339915
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
