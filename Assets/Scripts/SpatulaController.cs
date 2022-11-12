@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 using UnityEngine.InputSystem.iOS;
+using UnityEngine.UI;
 
 public class SpatulaController : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class SpatulaController : MonoBehaviour
     [SerializeField] private float angularVelocityLerpSpeed = 5f;
     [SerializeField] private float maxAngularSpeed = 10f;
     
+    [Header("UI")]
+    [SerializeField] private Image speedSlider;
+    [SerializeField] private Gradient colorGradient;
     
     private InputManager inputManager;
 
@@ -67,30 +71,15 @@ public class SpatulaController : MonoBehaviour
         currentVelocity = Mathf.Lerp(currentVelocity,linearVelocity*8f, angularVelocityLerpSpeed * Time.deltaTime);
         currentVelocity = Mathf.Min(Mathf.Max(currentVelocity,-maxAngularSpeed), maxAngularSpeed);//limiting the velocity
         Debug.Log("currentVelocity : " + currentVelocity);
-        float height = currentVelocity / maxAngularSpeed;
-        UpdateLiquidMaterial(currentVelocity, height);
-        
-        /*Vector3 direction = (currentPos - planeCenterPos);
-        float magnitude = direction.magnitude/radius;
-        direction = direction.normalized;
+        float percent = currentVelocity / maxAngularSpeed;
+        //UpdateLiquidMaterial(currentVelocity, height);
+        UpdateSlider(percent);
+    }
 
-        float x = direction.x;// - previousDirection.x;
-        float y = direction.z;// - previousDirection.z;
-        
-        float angle = Mathf.Atan2(y,x);// [-PI;PI]
-
-        Debug.Log("angleBetween = " + GetAngleDifference(angle, previousAngle));
-        float rawAngularVelocity = GetAngleDifference(angle, previousAngle)/Time.deltaTime;
-        testVelocity = rawAngularVelocity;
-        
-        previousAngularVelocity = Mathf.Lerp(previousAngularVelocity, rawAngularVelocity,Time.deltaTime * angularVelocityLerpSpeed);
-        
-        previousAngularVelocity = Mathf.Min(Mathf.Max(previousAngularVelocity,-maxAngularSpeed), maxAngularSpeed);
-        //Debug.Log(rawAngularVelocity);
-        float height = previousAngularVelocity / maxAngularSpeed;
-        UpdateLiquidMaterial(currentVelocity, height);
-        */
-        
+    private void UpdateSlider(float percent)
+    {
+        speedSlider.color = colorGradient.Evaluate(percent);
+        speedSlider.fillAmount = percent;
     }
 
     private float GetAngleDifference(float angle, float previous)
